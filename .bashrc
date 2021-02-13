@@ -112,25 +112,4 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# enable rvm
-#export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-#source "$HOME/.rvm/scripts/rvm"
-
-# android sdk
-export ANDROID_HOME=~/prj/android-sdk
-
-export PATH="$ANDROID_HOME/cmdline-tools/tools/bin:$PATH"
-export PATH="$ANDROID_HOME/platform-tools:$PATH"
-
-
-alias ls='ls --color -F'
-TERM=screen-256color
-### to have tmux with 256 color
-alias tmux='tmux -2'
-
-PS1=$'\[\e[m\]\[\e[36m\]\u@\[\e[31m\]\h:\[\e[32m\]\w\n\[\e[36m\]$ \[\e[m\]'
-
-# Uncomment to use the terminal colours set in DIR_COLORS
-#eval "$(dircolors -b /etc/DIR_COLORS)"
-
-alias gitlog='git log --oneline --graph --all'
+source custom_bashrc
