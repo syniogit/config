@@ -18,7 +18,7 @@ TERM=screen-256color
 ### to have tmux with 256 color
 alias tmux='tmux -2'
 
-PS1=$'\[\e[m\]\[\e[36m\]\u@\[\e[31m\]\h:\[\e[32m\]\w\[\e[34m\] ($(git branch 2>/dev/null|grep '^*'|colrm 1 2))\n\[\e[36m\]$ \[\e[m\]'
+PS1=$'\[\e[m\]\[\e[36m\]\u@\[\e[31m\]\h:\[\e[32m\]\w\[\e[38;2;150;150;200m\][$(git branch 2>/dev/null|grep '^*'|colrm 1 2)]\[\e[m\]\012\[\e[36m\]$ \[\e[m\]'; export PS1
 
 # Uncomment to use the terminal colours set in DIR_COLORS
 #eval "$(dircolors -b /etc/DIR_COLORS)"
