@@ -7,10 +7,9 @@
 #source "$HOME/.rvm/scripts/rvm"
 
 # android sdk
-export ANDROID_HOME=~/prj/android-sdk
-
-export PATH="$ANDROID_HOME/cmdline-tools/tools/bin:$PATH"
-export PATH="$ANDROID_HOME/platform-tools:$PATH"
+#export ANDROID_HOME=~/prj/android-sdk
+#export PATH="$ANDROID_HOME/cmdline-tools/tools/bin:$PATH"
+#export PATH="$ANDROID_HOME/platform-tools:$PATH"
 
 
 alias ls='ls --color -F'
@@ -18,12 +17,27 @@ TERM=screen-256color
 ### to have tmux with 256 color
 alias tmux='tmux -2'
 
-PS1=$'\[\e[m\]\[\e[36m\]\u@\[\e[31m\]\h:\[\e[32m\]\w\[\e[38;2;150;150;200m\][$(git branch 2>/dev/null|grep '^*'|colrm 1 2)]\[\e[m\]\012\[\e[36m\]$ \[\e[m\]'; export PS1
+### %an author name
+alias gitl='git log --graph --color --oneline --pretty=format:"%c(yellow)%h %C(cyan) %ar %C(auto) %d %C(reset) %s" --date=format:%Y-%my-%d'
+alias gitla='git log --all --graph --color --oneline --pretty=format:"%c(yellow)%h %C(cyan) %ar %C(auto) %d %C(reset) %s" --date=format:%Y-%my-%d'
+alias gitlas='git log --all --stat --graph --color --oneline --pretty=format:"%c(yellow)%h %C(cyan) %ar %C(auto) %d %C(reset) %s" --date=format:%Y-%my-%d'
+alias gitls='git log --stat --graph --color --oneline --pretty=format:"%c(yellow)%h %C(cyan) %ar %C(auto) %d %C(reset) %s" --date=format:%Y-%my-%d'
+
+parse_git_branch() {
+	git branch 2> /dev/null | grep '^*' | colrm 1 2
+}
+
+if [ $(whoami) = 'root' ]
+then
+	user_color='1;31'
+else
+	user_color='1;32'
+fi
+
+PS1=$'\[\e[m\]\[\e[${user_color}m\]\u@\[\e[1;33m\]HOST-\h \[\e[1;34m\]\w\[\e[38;2;150;150;255m\] [$(parse_git_branch)]\012\[\e[${user_color}\]$ \[\e[m\]'; export PS1
 
 # Uncomment to use the terminal colours set in DIR_COLORS
 #eval "$(dircolors -b /etc/DIR_COLORS)"
-
-alias gitlog='git log --oneline --graph --all'
 
 # Created by `userpath` on 2021-02-05 22:36:57
 export PATH="$PATH:/home/lvd/.local/bin"

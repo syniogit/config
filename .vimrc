@@ -6,20 +6,21 @@ colorscheme elflord
 " start scrolling at offset 5
 set so=5
 set nu
-set tabstop=4
-set shiftwidth=4
+set tabstop=8
+set shiftwidth=8
+set softtabstop=8
 set noexpandtab
 set autoindent
 if has("autocmd")
 	filetype plugin indent on
 endif
 
-autocmd FileType ruby setlocal shiftwidth=4 tabstop=4 noexpandtab autoindent
-autocmd FileType c setlocal shiftwidth=8 tabstop=8 noexpandtab autoindent
-autocmd FileType h setlocal shiftwidth=8 tabstop=8 noexpandtab autoindent
-autocmd FileType cc setlocal shiftwidth=8 tabstop=8 noexpandtab autoindent
-autocmd FileType cpp setlocal shiftwidth=8 tabstop=8 noexpandtab autoindent
-autocmd FileType js setlocal shiftwidth=8 tabstop=8 noexpandtab autoindent
+autocmd FileType ruby setlocal shiftwidth=4 tabstop=4 noexpandtab autoindent softtabstop=4
+autocmd FileType c setlocal shiftwidth=8 tabstop=8 noexpandtab autoindent softtabstop=8
+autocmd FileType h setlocal shiftwidth=8 tabstop=8 noexpandtab autoindent softtabstop=8
+autocmd FileType cc setlocal shiftwidth=8 tabstop=8 noexpandtab autoindent softtabstop=8
+autocmd FileType cpp setlocal shiftwidth=8 tabstop=8 noexpandtab autoindent softtabstop=8
+autocmd FileType js setlocal shiftwidth=8 tabstop=8 noexpandtab autoindent softtabstop=8
 
 set noerrorbells visualbell t_vb=
 
